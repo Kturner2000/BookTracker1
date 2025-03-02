@@ -1,0 +1,91 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+}
+  .bookContainer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bookOrder {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 60px 60px 0;
+    border-color: transparent #000000 transparent transparent;
+    transform: rotate(0deg);
+  }
+
+
+  .bookOrderSpan {
+    color: #f5f5f5;
+    font-family: sans-serif;
+    font-size: 1.005em;
+    position: absolute;
+    top: 6px;
+    right: -46px;
+  }
+
+.inlineGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.genre {
+  display: inline;
+}
+
+.nextInSeries, .genreSelect {
+  width: 100%;
+  padding: 8px;
+  background-color: transparent;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;;
+  height: 38px;
+}
+
+.bookFilters {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 10px;
+}
+  
+  /* @media only screen and (min-width: 481px) {
+    .container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  } */
+  
+  
+
+  @media only screen and (min-width: 825px) {
+    .container {
+       grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Styles for desktop (1025px and wider) */
+  @media only screen and (min-width: 1025px) {
+    .container {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  
+  
+  

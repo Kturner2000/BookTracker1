@@ -1,0 +1,72 @@
+.menu {
+  padding-top: 20px;
+  
+
+}
+
+
+.menuTabs {
+  display: flex;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  text-align: center;
+}
+
+.menuLink {
+  text-decoration: none;
+}
+
+.menuItem {
+  padding: 8px 2px;
+  overflow: hidden;
+  position: relative;
+  width: 150px;
+  text-align: center;
+  background-image: 
+  radial-gradient(circle at 0 0, rgb(226, 226, 226) 15px, transparent 15px), 
+  radial-gradient(circle at 100% 0, rgb(226, 226, 226) 15px, transparent 15px);
+  color: #fff;
+
+}
+
+.menuItem:nth-child(1) {
+  background-color: #f0bad1;
+}
+
+.menuItem:nth-child(2) {
+  background-color: #a5cacc;
+}
+
+.menuItem:nth-child(3) {
+  background-color: #c3719b;
+}
+
+.menuItem:nth-child(4) {
+  background-color: #c8d6c5;
+}
+
+.menuItem:nth-child(5) {
+  background-color: #fddd74;
+}
+
+
+.tabContent {
+  position: relative;
+  z-index: 10;
+}
+
+@media only screen and (min-width:601px) {
+  .menuItem {
+    background-image:
+  radial-gradient(circle at 0 0, rgb(226, 226, 226) 30px, transparent 30px),
+  radial-gradient(circle at 100% 0, rgb(226, 226, 226) 30px, transparent 30px);
+  }
+}
+
+@media only screen and (min-width:481px) {
+
+  .menuItem {
+      padding: 2px 22px;
+  }
+}

@@ -1,0 +1,74 @@
+.seriesDetails {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.seriesReadDetails {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bookList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+    list-style: none;
+}
+
+.bookContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.imgAndOrder {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.bookOrder {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 60px 60px 0;
+    border-color: transparent #000000 transparent transparent;
+    transform: rotate(0deg);
+  }
+
+
+  .bookOrderSpan {
+    color: #f5f5f5;
+    font-family: sans-serif;
+    font-size: 1.005em;
+    position: absolute;
+    top: 6px;
+    right: -46px;
+  }
+
+
+
+/* Responsive Design */
+@media only screen and (min-width: 481px) {
+    .bookList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (min-width: 825px) {
+    .bookList {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .bookList {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

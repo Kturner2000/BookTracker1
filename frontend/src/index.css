@@ -1,0 +1,81 @@
+body {
+    margin: auto;
+    max-width: 1000px;
+    background-color: rgb(226, 226, 226);
+}
+
+a {
+color: black;
+font-weight: 100;
+}
+
+.pageContainer {
+    background-color: #f0bad1;
+    padding: 20px 30px;
+}
+
+
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  
+  }
+  
+  .addBookBtn {
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;;
+  }
+
+
+
+.img {
+    height: 100%;
+    width: 100%;
+}
+
+.detailContainer {
+    margin-left: 10px;
+}
+
+.ql-editor {
+    background-color: #fdf9f6 !important;
+    line-height: 1 !important;
+    letter-spacing: 1px;
+    height: max-content !important;
+    
+}
+
+
+.ql-editor textarea {
+    height: 50px !important;
+}
+
+.react-datepicker__input-container input {
+    margin: 0;
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+    margin-right: 0 !important;
+}
+
+@media only screen and (min-width:481px) {
+    .pageContainer {
+        padding: 20px 30px;
+    }
+}
+
+@media only screen and (min-width:601px) {
+   body {
+    padding: 0 30px;
+
+   }
+   .pageContainer {
+    padding: 20px 50px;
+   }
+
+}

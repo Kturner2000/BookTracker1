@@ -1,0 +1,11 @@
+.dropdown {
+    padding: 2px;
+    border-radius: 4px;
+    width: 90%;
+    cursor: pointer;
+    position: absolute;
+    z-index: 200;
+    left: 0;
+    bottom: 0;
+    margin: 10% 3%;
+}
