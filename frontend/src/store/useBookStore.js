@@ -1,7 +1,7 @@
 import { axiosInstance } from "../lib/axios";
 import { create } from "zustand";
 
-export const useBookStore = create((set) => ({
+export const useBookStore = create((set, get) => ({
     books: [],
     book: null,
     readingStatusOverview: [],
@@ -97,6 +97,15 @@ export const useBookStore = create((set) => ({
         } finally {
             set({ isBookLoading: false,  error:null });
         }
+    },
+    searchBooks: (query) => {
+        const books = get().books; // Get books from Zustand store
+        return books.length
+            ? books.filter(book =>
+                  book.title.toLowerCase().includes(query.toLowerCase()) || 
+                  book.seriesName?.toLowerCase().includes(query.toLowerCase())
+              )
+            : [];
     },
     
 }));

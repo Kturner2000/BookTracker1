@@ -34,11 +34,17 @@ export default function BookPage() {
 
     const handleChange = async (event) => {
         const newStatus = event.target.value;
+        let newBookRead = [...book.bookRead]; 
+    if (newStatus === 'read') {
+        const readDate = new Date().toISOString().split('T')[0];
+        newBookRead.push(readDate)
+    }
         setReadStatus(newStatus);
         try {
             await updateBookById({
                 id: book._id,
-                updateData: { readStatus: newStatus }
+                updateData: { readStatus: newStatus, bookRead : newBookRead  }
+
             });
             if (newStatus === 'read' && book.seriesId?._id) {
                 await updateSeries(book.seriesId._id, {
@@ -54,6 +60,7 @@ export default function BookPage() {
     if (error) return <NotFound type={"Book"} />;
     if (!book) return <NotFound type={"Book"} />;
 
+
     // Ensure series is loaded before rendering series details
     if (isSeriesLoading) return <div>Loading series...</div>;
     if (seriesError) return <NotFound type={"Series"} />;
@@ -68,6 +75,7 @@ export default function BookPage() {
                  <div className={`${styles.imageContainer} `}>
                     <img src={book.coverImage} alt={book.title} className={styles.img} />
                 </div>
+                
                 <div className={styles.detailContainer}>
                     <div className={styles.sectionOne}>
                         <h1>{book.title}</h1>
@@ -79,6 +87,7 @@ export default function BookPage() {
                                 value={book.readStatus}
                                 onChange={handleChange}
                             >
+                                <option value="none">None</option>
                                 <option value="wantToRead">Want To Read</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="read">Read</option>

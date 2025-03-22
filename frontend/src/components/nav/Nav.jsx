@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"; // Corrected import
-import styles from './header.module.css'
+import styles from './nav.module.css'
 import { HouseSimple } from '@phosphor-icons/react'
 
-export default function Header() {
+export default function Nav() {
 
 
     return (
-        <header className={styles.header}>
+        <div className={styles.nav}>
            
             <nav aria-label="Book read status" className={styles.menu}>
                 <ul className={styles.menuTabs}>
@@ -39,6 +39,6 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
-        </header>
+        </div>
     )
 }

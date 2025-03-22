@@ -12,22 +12,18 @@ async function updateBooks() {
 
     // Loop through each book and update it
     for (let book of books) {
+      const currentDate = new Date("<YYYY-mm-dd>");
+      
       // Add readStatusUpdatedAt if it doesn't exist
-      if (!book.readStatusUpdatedAt) {
-        book.readStatusUpdatedAt = new Date();
+      if (book.readStatus === 'read' && !book.bookRead.includes(currentDate)) {
+        book.bookRead.push(new Date(currentDate)); // Push the date into the array
       }
 
-      // Format dates as d/m/y
-      if (book.publishDate) {
-        book.publishDate = formatDate(book.publishDate);
-      }
+      
 
-      if (book.readStatusUpdatedAt) {
-        book.readStatusUpdatedAt = formatDate(book.readStatusUpdatedAt);
-      }
 
       await book.save(); // Save the updated book
-      console.log(`Updated book: ${book.title} with readStatusUpdatedAt: ${book.readStatusUpdatedAt}`);
+      console.log(`Updated book: ${book.title} with readBook: ${book.bookRead}`);
     }
 
     console.log('All books updated successfully!');
@@ -39,11 +35,6 @@ async function updateBooks() {
 }
 
 // Function to format date as d/m/y
-function formatDate(date) {
-  const day = date.getDate();
-  const month = date.getMonth() + 1; // Months are zero-based
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
-}
+
 
 updateBooks();

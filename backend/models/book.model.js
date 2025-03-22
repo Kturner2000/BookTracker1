@@ -1,12 +1,10 @@
 const mongoose = require("mongoose");
-const Series = require('./series.model'); 
 
 const bookSchema =  new mongoose.Schema({
     title: { type: String, required: true },
     author: [{ type: String, required: true }],
     seriesName: { type: String, ref: 'Series' },
     seriesId: { type: mongoose.Schema.Types.ObjectId, ref: 'Series' },  // Reference to Series model
-    seriesOrder: { type: Number },
     publishDate: {
       type : Date, 
       validate: {
@@ -15,12 +13,12 @@ const bookSchema =  new mongoose.Schema({
     }},
     readStatus: { 
       type: String, 
-      enum: ['currentlyReading', 'read', 'wantToRead'],
+      enum: ['currentlyReading', 'read', 'wantToRead', 'none'],
       default: 'wantToRead'
     },
-    readStatusUpdatedAt: {
-      type: Date,
-      default: null
+    bookRead: {
+      type: [String],
+      default: []
     },
     coverImage: String,
     blurb: String,
@@ -30,18 +28,8 @@ const bookSchema =  new mongoose.Schema({
       required : true,
     },
     pageCount: Number,
-  }, {
-    timestamps: true
-  }
+  },
 );
-
-bookSchema.pre('save', function(next) {
-  if (this.isModified('readStatus')) {
-    this.readStatusUpdatedAt = new Date();
-  }
-  next();
-});
-
 
 
   const Book = mongoose.model("Book", bookSchema);

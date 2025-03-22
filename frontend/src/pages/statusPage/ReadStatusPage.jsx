@@ -35,6 +35,7 @@ export default function ReadStatusPage() {
 
     ]
 
+
     
 
     const nextSeriesBook = allSeries?.map(series => {
@@ -97,6 +98,7 @@ export default function ReadStatusPage() {
                 ) : (
                     books && books.map(book => (
                          (
+                            
                             <div key={book._id} className={styles.bookContainer}>
                             <BookImageComponent book={book} />
                             {book.seriesOrder && (

@@ -91,6 +91,7 @@ export default function AddBook() {
                                 required
                             >
                                 <option value="">Choose status</option>
+                                <option value="none">None</option>
                                 <option value="wantToRead">Want To Read</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="read">Read</option>

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import styles from "./EditBookPage.module.css";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -22,7 +21,7 @@ export default function EditBookPage() {
         blurb: "",
         genre: "",
         pageCount: 0,
-        publishDate: new Date()
+        publishDate: ""
 
     });
 
@@ -41,7 +40,7 @@ export default function EditBookPage() {
                 blurb: book.blurb || "",
                 genre: book.genre || "",
                 pageCount: book.pageCount || 0,
-                publishDate: book.publishDate || new Date()
+                publishDate: book.publishDate ? book.publishDate.split("T")[0] : ""
             });
         }
     }, [book]);
@@ -75,11 +74,12 @@ export default function EditBookPage() {
         e.preventDefault();
         updateBookById({ 
             id, 
-            updateData: formData ,
-            publishDate: formData.publishDate.toISOString()
+            updateData: {
+                ...formData,
+                publishDate: formData.publishDate // Keep it as a string in YYYY-MM-DD
+            }
         });
-        
-        navigate(`/books/${id}`)
+        navigate(`/books/${id}`);
     };
 
     if (isBookLoading) return <p>Loading...</p>;
@@ -111,6 +111,7 @@ export default function EditBookPage() {
                             onChange={handleChange}
                             required
                         >
+                             <option value="none">None</option>
                             <option value="wantToRead">Want To Read</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="read">Read</option>
@@ -119,17 +120,15 @@ export default function EditBookPage() {
                     
                     <div className={styles.formGroup}>
                         <label className={styles.label} htmlFor="publishDate">Publish Date:</label>
-                        <DatePicker 
-                            selected={formData.publishDate} 
-                            onChange={handleDateChange}
+                        <input
+                            type="date"
                             id="publishDate"
                             name="publishDate"
                             className={styles.input}
+                            value={formData.publishDate}
+                            onChange={handleDateChange}
                         />
                     </div>
-
-
-
                 </div>
                 <div className={`${styles.formGroup} ${styles.inlineGroup}`}>
                     <div className={styles.inlineItem}>

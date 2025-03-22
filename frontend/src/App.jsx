@@ -1,15 +1,16 @@
 import { Routes, Route } from 'react-router-dom'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import HomePage from './pages/Home';
 import ReadStatusPage from './pages/statusPage/ReadStatusPage';
 import SeriesPage from './pages/seriesPage/SeriesPage';
-import Header from './components/header/header';
+import Nav from './components/nav/Nav';
 import BookPage from './pages/bookPage/BookPage';
 import LoginPage from './pages/login/LoginPage';
 import EditBookPage from './pages/editBook/EditBookPage';
 import AddBook from './pages/addBook/addBook';
 import NotPubished from './pages/notPublished/notPublished';
 import NotFound from './components/404/NotFound';
+import Search from './components/search/Searched';
 
 function App() {
   const location = useLocation();
@@ -33,25 +34,22 @@ function App() {
 
   const backgroundColor = getBackgroundColor();
 
-      const navigate = useNavigate();
-  
-      function addBookPage() {
-          navigate("/addBook");
-      }
+      
   
 
   return (
     <>
     <div>
-       <div className={"titleContainer"}>
-                
-                <h1>Booktracker</h1>
-                <button className={"addBookBtn"} onClick={addBookPage}>
-                     Add Book
-                </button>
-        </div>
+       <header className={"headerContainer"}>
+          <div className='searchContainer'>
+           <Search />
+          </div>  
+          <div className='titleContainer' >
+            <h1>Booktracker</h1>
+          </div>
+        </header>
     </div>
-      <Header />
+      <Nav />
       <div className='pageContainer' style={{ backgroundColor }}>
         <Routes>
           <Route path="/" element={<HomePage />} />

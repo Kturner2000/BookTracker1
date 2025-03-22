@@ -3,7 +3,7 @@ import { create } from "zustand";
 
 export const useSeriesStore = create((set, get) => ({
     allSeries: [],
-    series: null,
+    series: { name: '', _id: '', books: [] },
     isSeriesLoading: false,
     seriesError: null, 
 

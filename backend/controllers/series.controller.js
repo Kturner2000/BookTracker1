@@ -23,7 +23,8 @@ async function getSeries(req, res) {
             return res.status(404).json({ message: 'Series not found' });
         }
 
-        series.books.sort((a, b) => a.seriesOrder - b.seriesOrder);
+        series.books.sort((a, b) => a.publishDate - b.publishDate);
+        
 
         // Send the series as a JSON response
         res.json(series);

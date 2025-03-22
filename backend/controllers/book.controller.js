@@ -149,9 +149,25 @@ async function getBooksByReadStatus(req, res) {
      
       break;
     case 'read':
-      books = await Book.find({ readStatus: 'read' })
-        .sort({ readStatusUpdatedAt : -1 })
-        .select({ title: 1, author: 1, readStatus: 1, coverImage: 1 });
+      books = await Book.aggregate([
+        { $match: { readStatus: 'read' } }, // Filter books with read status
+        {
+          $addFields: {
+            lastReadDate: { $arrayElemAt: ["$bookRead", -1] } // Get last (most recent) date from bookRead array
+          }
+        },
+        { $sort: { lastReadDate: -1 } }, // Sort by most recent read date
+        {
+          $project: {
+            title: 1,
+            author: 1,
+            readStatus: 1,
+            coverImage: 1,
+            updatedAt: 1,
+            lastReadDate: 1 // Optional: include lastReadDate in the result
+          }
+        }
+      ]);
       break;
     case 'wantToRead':
       books = await Book.find({ 

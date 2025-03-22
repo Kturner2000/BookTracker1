@@ -8,12 +8,11 @@ export default function ReadStatusDropdown({ currentStatus }) {
     statusColor = "red"
   } else if(currentStatus === "currentlyReading") {
      statusColor = "orange"
-  } else {
+  } else if (currentStatus === "read") {
      statusColor = "green"
+  } else {
+    statusColor = "transparent"
   }
-
-
-
 
   return (
       <div
