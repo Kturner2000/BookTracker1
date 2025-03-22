@@ -24,6 +24,13 @@ const bookRoutes = require('./routes/books.routes.js');
 const seriesRoutes = require('./routes/series.routes.js') 
 const authRoutes = require('./routes/auth.routes.js')
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "../../frontend/dist", "index.html"));
+    });
+}
+
 
 app.use("/api/books", bookRoutes)
 app.use("/api/series", seriesRoutes)
