@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from 'react'
 import styles from './hero.module.css'
 import BookImageComponent from '../bookImg/bookImage'
 import { Link } from 'react-router-dom'
-import mongoose from 'mongoose'
 
 
 export default function HeroBook() {

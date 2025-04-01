@@ -1,13 +1,16 @@
 const express = require("express");
-require("dotenv").config();
 const cors = require("cors");
 const connectDB = require("./lib/db.js");
 const path = require("path");
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config({ path: '../.local.env' }); // Verify this path
+}
 
 
 
 const app = express();
+app.use(cookieParser());
 
 app.use(express.json());
 // CORS Configuration
