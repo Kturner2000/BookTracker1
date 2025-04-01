@@ -1,6 +1,9 @@
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
+const connectDB = require("./lib/db.js");
+const path = require("path");
+
 
 
 
@@ -14,7 +17,6 @@ const corsOrigin = process.env.NODE_ENV === "production"
 
 app.use(cors({ origin: corsOrigin, credentials: true }));
 
-const connectDB = require("./lib/db.js");
 
 const PORT = process.env.PORT || 5000;
 
