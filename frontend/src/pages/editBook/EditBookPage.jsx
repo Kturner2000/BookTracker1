@@ -5,6 +5,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import styles from "./EditBookPage.module.css";
 import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
 
 
 export default function EditBookPage() {
@@ -120,14 +121,14 @@ export default function EditBookPage() {
                     
                     <div className={styles.formGroup}>
                         <label className={styles.label} htmlFor="publishDate">Publish Date:</label>
-                        <input
-                            type="date"
-                            id="publishDate"
-                            name="publishDate"
-                            className={styles.input}
-                            value={formData.publishDate}
-                            onChange={handleDateChange}
+                        <DatePicker
+                           selected={formData.publishDate } 
+                           onChange={handleDateChange}
+                           id="publishDate"
+                           name="publishDate"
+                           className={styles.input}
                         />
+                        
                     </div>
                 </div>
                 <div className={`${styles.formGroup} ${styles.inlineGroup}`}>
