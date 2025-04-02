@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import BookImageComponent from "../bookImg/bookImage";
 import { Book, BookOpenText } from '@phosphor-icons/react';
 import styles from './bookSeries.module.css';
-import ReadStatusDropdown from "../readStatus/readStatusDropdown";
+import ReadStatusDropdown from '../readStatus/ReadStatusDropdown'
 
 export default function BookSeries({ series }) {
 
