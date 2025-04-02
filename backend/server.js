@@ -4,7 +4,7 @@ const connectDB = require("./lib/db.js");
 const path = require("path");
 
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config({ path: '../.local.env' }); // Verify this path
+    require('dotenv').config({ path: './.env' }); // Verify this path
 }
 
 
@@ -44,5 +44,6 @@ app.use("/api/auth", authRoutes)
 
 app.listen(PORT, () => {
     console.log(`server is running on port ${process.env.PORT}`);
+    console.log(`${VITE_API_URL}`)
     connectDB();
 });
