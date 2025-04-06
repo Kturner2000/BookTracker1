@@ -7,22 +7,19 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config({ path: './.env' }); // Verify this path
 }
 
-
-
 const app = express();
-// app.use(cookieParser());
+const PORT = process.env.PORT || 5000;
 
+// Middleware
 app.use(express.json());
+app.use(cookieParser());
+
 // CORS Configuration
 const corsOrigin = process.env.NODE_ENV === "production" 
     ? process.env.FRONTEND_URL 
     : "http://localhost:5173";
 
 app.use(cors({ origin: corsOrigin, credentials: true }));
-
-
-const PORT = process.env.PORT || 5000;
-
 // Routes
 
 const bookRoutes = require('./routes/books.routes.js');
