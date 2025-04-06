@@ -28,6 +28,8 @@ const PORT = process.env.PORT || 5000;
 const bookRoutes = require('./routes/books.routes.js');
 const seriesRoutes = require('./routes/series.routes.js') 
 const authRoutes = require('./routes/auth.routes.js')
+const authorRoutes = require('./routes/author.routes.js')
+
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
@@ -39,6 +41,8 @@ if (process.env.NODE_ENV === "production") {
 
 app.use("/api/books", bookRoutes)
 app.use("/api/series", seriesRoutes)
+app.use("/api/author", authorRoutes )
+
 app.use("/api/auth", authRoutes)
 
 

@@ -31,13 +31,13 @@ export default function ReadStatusPage() {
         { value: 'fantasy', label: 'Fantasy' },
         { value: 'sci-fi', label: 'Sci-fi' },
         { value: 'children', label: 'Children' },
-        { value: 'classic', label: 'Classic' }
-
+        { value: 'classic', label: 'Classic' },
+        { value: 'ya', label: 'Young Adult(YA)' },
+        { value: 'mystery-crime', label: 'Mystery & Crime' },
+        { value: 'graphic-novels-manga', label: 'Graphic Novels & Manga' },
+        { value: 'non-fiction', label: 'Non-Fiction' },
     ]
-
-
     
-
     const nextSeriesBook = allSeries?.map(series => {
         const nextBook = series.books.find(book => {
             const publishDate = new Date(book.publishDate); 

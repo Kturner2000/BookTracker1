@@ -101,10 +101,12 @@ export default function BookPage() {
                     <div className={`${styles.sectionThree} ql-editor ${styles.blurb}`} dangerouslySetInnerHTML={{ __html: book.blurb }} />
                 </div>
             </div>
-            <div className={styles.series}>
-                {/* Display series information if available */}
-                {series && <BookSeries series={series} />}
-            </div>
+            {series &&
+                <div className={styles.series}>
+                    {/* Display series information if available */}
+                    <BookSeries series={series} />
+                </div>
+            }
         </div>
     );
 }

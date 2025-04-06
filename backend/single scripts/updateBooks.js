@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Book = require('./models/book.model.js');
-const connectDB = require("./lib/db.js");
+const Book = require('../models/book.model.js');
+const connectDB = require("../lib/db.js");
 
 async function updateBooks() {
   try {

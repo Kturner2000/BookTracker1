@@ -1,70 +1,111 @@
-/* EditBookPage.module.css */
+/* AddBook.module.css */
+
+/* Container */
 .container {
-    max-width: 800px;
+    max-width: 1200px; /* Increased width for larger screens */
     margin: 0 auto;
     padding: 20px;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.title {
-    font-size: 24px;
+/* Header */
+.header {
+    text-align: center;
+    font-size: 32px; /* Larger font for title */
+    margin-bottom: 30px;
+    color: #333; /* Neutral text color */
+}
+
+/* Form Group */
+.formGroup {
     margin-bottom: 20px;
 }
 
-.formGroup {
-    margin-bottom: 15px;
-}
-
+/* Inline Group */
 .inlineGroup {
-    display: block;
-
+    display: flex;
+    flex-wrap: wrap; /* Wrap items if space is insufficient */
+    gap: 20px; /* Consistent spacing between items */
+    align-items: flex-start;
 }
 
+/* Inline Item */
 .inlineItem {
-    flex: 1;
+    flex: 1; /* Items share equal space */
+    min-width: 300px; /* Prevent items from becoming too small */
 }
 
+/* Label Styling */
 .label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
+    font-size: 14px;
+    color: #555; /* Softer text color */
 }
 
+/* Input Fields */
 .input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    width: calc(100% - 16px); /* Prevent overflow issues */
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px; /* Slightly rounded corners */
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out;
 }
 
+.input:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    outline: none;
+}
+
+/* Date Picker Wrapper */
+.react-datepicker-wrapper {
+    width: calc(100% - 16px); /* Ensure consistent width with other inputs */
+}
+
+/* Textarea (ReactQuill) Styling */
 .textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    min-height: 100px;
+    width: calc(100% - 16px);
+    min-height: 150px; /* Increased height for better usability */
+    border-radius: 6px;
 }
 
+
+/* Button Styling */
 .button {
-    padding: 10px 20px;
-    background-color: #007bff;
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff; /* Primary button color */
     color: white;
+    font-size: 16px;
+    border-radius: 6px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker shade on hover */
 }
 
-@media only screen and (min-width:601px) {
+.button:active {
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.2); /* Button press effect */
+}
+
+/* Responsive Design for Smaller Screens */
+@media only screen and (max-width: 600px) {
     .inlineGroup {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-       
+        flex-direction: column; /* Stack items vertically on small screens */
+        gap: 10px; /* Reduced spacing for smaller screens */
     }
- 
+
+    .container {
+        padding: 15px; /* Adjust padding for smaller screens */
+        max-width: calc(100% - 30px); /* Use full screen width with some margin */
+        box-shadow: none; /* Remove shadow on small screens for simplicity */
+        border-radius: none; /* Flat corners on smaller devices */
+        background-color:#fff
+}
 }

@@ -17,7 +17,7 @@ async function addSeriesIdsToBooks() {
         for (let book of books) {
             const series = await Series.findOne({ name: book.seriesName });  // Find series by name
 
-            if (series) {
+            if (series && book.seriesId.toString() !== series._id.toString()) {
                 book.seriesId = series._id;  // Set the seriesId to the book
                 await book.save();  // Save the updated book
                 console.log(`Updated book: ${book.title} with seriesId: ${series._id}`);

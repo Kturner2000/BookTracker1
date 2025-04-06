@@ -16,15 +16,25 @@ const bookSchema =  new mongoose.Schema({
       enum: ['currentlyReading', 'read', 'wantToRead', 'none'],
       default: 'wantToRead'
     },
-    bookRead: {
+    bookReadDates: {
       type: [String],
       default: []
     },
     coverImage: String,
     blurb: String,
     genre: {
-      type: String,
-      enum: ['romance', 'fantasy', 'sci-fi', 'classic', 'children'],
+      type: [String],
+      enum: [
+        'romance', 
+        'fantasy', 
+        'sci-fi', 
+        'classic', 
+        'children', 
+        'ya', 
+        'mystery-crime',
+        'graphic-novels-manga', 
+        'non-fiction'
+      ],
       required : true,
     },
     pageCount: Number,

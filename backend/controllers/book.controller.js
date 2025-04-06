@@ -3,7 +3,6 @@ const Series = require('../models/series.model')
 const mongoose = require("mongoose");
 
 
-
 async function getAllBooks(req, res) {
     try {
         const books = await Book.find();
@@ -189,7 +188,13 @@ async function getBooksByReadStatus(req, res) {
 
 
 
-
   
 
-module.exports =  {saveBookToDatabase, getBook, updateBookById, getAllBooks, getNotPublishedBooks, getBooksByReadStatus}
+module.exports =  {
+  saveBookToDatabase, 
+  getBook, 
+  updateBookById, 
+  getAllBooks, 
+  getNotPublishedBooks, 
+  getBooksByReadStatus, 
+}

@@ -104,7 +104,7 @@ export default function EditBookPage() {
                         />
                     </div>
                     <div className={styles.inlineItem}>
-                    <label className={styles.label} htmlFor="read-status-dropdown">Read Status</label>
+                        <label className={styles.label} htmlFor="read-status-dropdown">Read Status</label>
                         <select
                             id="read-status-dropdown"
                             className={styles.input}
@@ -112,24 +112,24 @@ export default function EditBookPage() {
                             onChange={handleChange}
                             required
                         >
-                             <option value="none">None</option>
+                            <option value="none">None</option>
                             <option value="wantToRead">Want To Read</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="read">Read</option>
                         </select>
                     </div>
-                    
-                    <div className={styles.formGroup}>
-                        <label className={styles.label} htmlFor="publishDate">Publish Date:</label>
-                        <DatePicker
-                           selected={formData.publishDate } 
-                           onChange={handleDateChange}
-                           id="publishDate"
-                           name="publishDate"
-                           className={styles.input}
-                        />
+                        <div className={styles.inlineItem}>
+                            <label className={styles.label} htmlFor="publishDate">Publish Date:</label>
+                            <DatePicker
+                            selected={formData.publishDate } 
+                            onChange={handleDateChange}
+                            id="publishDate"
+                            name="publishDate"
+                            className={styles.input}
+                            />
+                        </div>
                         
-                    </div>
+                   
                 </div>
                 <div className={`${styles.formGroup} ${styles.inlineGroup}`}>
                     <div className={styles.inlineItem}>
@@ -166,11 +166,16 @@ export default function EditBookPage() {
                             onChange={handleChange}
                             required
                         >
-                            <option value="romance">Romance</option>
-                            <option value="fantasy">Fantasy</option>
-                            <option value="sci-fi">Sci-Fi</option>
-                            <option value="classic">Classic</option>
-                            <option value="children">Children</option>
+                             <option value="">Choose Genre</option>
+                                <option value="romance">Romance</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="sci-fi">Sci-Fi</option>
+                                <option value="classic">Classic</option>
+                                <option value="children">Children</option>
+                                <option value="ya">Young Adult(YA)</option>
+                                <option value="mystery-crime">Mystery & Crime</option>
+                                <option value="graphic-novels-manga">Graphic Novels & Manga</option>
+                                <option value="non-fiction">Non-Fiction</option>
                         </select>
                     </div>
                 </div>
