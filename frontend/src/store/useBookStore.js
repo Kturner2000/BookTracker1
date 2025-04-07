@@ -5,7 +5,7 @@ export const useBookStore = create((set, get) => ({
     books: [],
     book: null,
     readingStatusOverview: [],
-    booksByStatus: [],
+    booksByStatus: { books: [] },
     booksNotPublished: [],
     isBookLoading: false,
     error: null, 

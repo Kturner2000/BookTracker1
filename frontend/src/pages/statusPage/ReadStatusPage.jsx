@@ -23,7 +23,7 @@ export default function ReadStatusPage() {
 
     useEffect(() => {
         getAllSeries()
-    }, [getAllSeries])
+    }, [])
 
     const options = [
         { value: "", label: 'All Books' },
