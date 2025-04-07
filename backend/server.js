@@ -12,7 +12,6 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
-app.use(cookieParser());
 
 // CORS Configuration
 const corsOrigin = process.env.NODE_ENV === "production" 
