@@ -4,13 +4,17 @@ const mongoose = require("mongoose");
 
 
 async function getAllBooks(req, res) {
-    try {
-        const books = await Book.find();
-        res.json(books);
-    } catch (error) {
-        console.error('Error getting all books:', error.message);
-        res.status(500).json({ message: 'Error getting all books' });
-    }
+  try {
+      const books = await Book.find();
+      console.log(books)
+      if (books.length === 0) {
+          return res.status(404).json({ message: 'No books found' });
+      }
+      res.json(books);
+  } catch (error) {
+      console.error('Error getting all books:', error.message);
+      res.status(500).json({ message: 'Internal server error' });
+  }
 }
 
 async function getNotPublishedBooks(req, res) {

@@ -5,7 +5,7 @@ export const useBookStore = create((set, get) => ({
     books: [],
     book: null,
     readingStatusOverview: [],
-    booksByStatus: { books: [] },
+    booksByStatus: [],
     booksNotPublished: [],
     isBookLoading: false,
     error: null, 
@@ -15,7 +15,7 @@ export const useBookStore = create((set, get) => ({
         set({ isBookLoading: true, error: null });
         try {
             const res = await axiosInstance.post('/books/addBook', bookData);
-            set({ book: res.data });
+            set({ books: res.data });
         } catch (error) {
             console.error("Error in saveBookToDatabase:", error.message);
             set({ error: error.message });
@@ -28,15 +28,16 @@ export const useBookStore = create((set, get) => ({
     getAllBooks: async () => {
         set({ isBookLoading: true });
         try {
-            const res = await axiosInstance.get('/books');
-            set({ books: res.data });
+          const res = await axiosInstance.get('/books');
+          
+          set({ books: res.data });
         } catch (error) {
-            console.error("Error in getAllBooks:", error.message);
-            set({ error: error.message });
+          console.error("Error in getAllBooks:", error.message);
+          set({ error: error.message });
         } finally {
-            set({ isBookLoading: false, error:null });
+          set({ isBookLoading: false }); // Do not overwrite error here
         }
-    },
+      },
 
     getNotPublishedBooks: async () => {
         set({ isBookLoading: true });

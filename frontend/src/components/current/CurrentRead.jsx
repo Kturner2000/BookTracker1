@@ -15,40 +15,38 @@ export default function CurrentlyReading() {
     getAllSeries();
   }, [getAllBooks, getAllSeries]);
 
+  console.log('Books:', books);
   useEffect(() => {
     if (books && allSeries) {
       const currentlyReadingBooks = books
-        .filter(book => book?.readStatus === "currentlyReading")
+      
+        .filter(book => book.readStatus === "currentlyReading")
         .map(book => {
           const series = allSeries.find(s => s.name === book.seriesName);
-          if (series) {
-            const totalBooks = series.books.length;
-            const booksRead = series.books.filter(b => b.readStatus === "read").length;
-            
-            return {
-              ...book,
-              seriesInfo: {
-                name: series.name,
-                totalBooks,
-                booksRead,
-                completed: series.completed,
-              }
-            };
-          }
-         
-          return book;
+          return series ? { 
+            ...book,
+            seriesInfo: {
+              name: series.name,
+              totalBooks: series.books.length,
+              booksRead: series.books.filter(b => b.readStatus === "read").length,
+              completed: series.completed,
+            },
+          } : book; // Return book without seriesInfo if no matching series found
         });
+  
       setCurrentlyReading(currentlyReadingBooks);
     }
   }, [books, allSeries]);
-
-    if (error || seriesError) {
-      return <div className={styles.error}>Error: {error || seriesError}</div>;
-    }
   
-    if (isBookLoading || isSeriesLoading) {
-      return <div className={styles.loading}>Loading...</div>;
-    }
+
+    
+  if (error || seriesError) {
+    return <div className={styles.error}>Error: {error || seriesError}</div>;
+  }
+  
+  if (isBookLoading || isSeriesLoading) {
+    return <div className={styles.loading}>Loading...</div>;
+  }
 
   return (
     <div className={styles.sectionContainer}>

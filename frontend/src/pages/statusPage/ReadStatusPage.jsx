@@ -4,7 +4,6 @@ import { useBookStore } from "../../store/useBookStore";
 import { useSeriesStore } from "../../store/useSeriesStore"
 import styles from './status.module.css'
 import BookImageComponent from '../../components/bookImg/bookImage'
-import Select from 'react-select'
 
 
 
@@ -23,7 +22,7 @@ export default function ReadStatusPage() {
 
     useEffect(() => {
         getAllSeries()
-    }, [])
+    }, [getAllSeries])
 
     const options = [
         { value: "", label: 'All Books' },
@@ -38,7 +37,7 @@ export default function ReadStatusPage() {
         { value: 'non-fiction', label: 'Non-Fiction' },
     ]
     
-    const nextSeriesBook = allSeries?.map(series => {
+    const nextSeriesBook = allSeries.map(series => {
         const nextBook = series.books.find(book => {
             const publishDate = new Date(book.publishDate); 
            return book.readStatus === "wantToRead" && publishDate <= currentDate

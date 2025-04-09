@@ -21,8 +21,9 @@ export default function HeroBook() {
   const selectRandomBook = () => {
     if (books && allSeries && !hasSelectedRandomBook.current) {
       // Filter series with 0 books read
-      const unreadSeries = allSeries.filter(series => {
-        const readBooks = series.books.filter(book => book.readStatus === "read").length;
+      const unreadSeries = allSeries.map(series => {
+        const books = series.books || []
+        const readBooks = books.map(book => book.readStatus === "read").length;
         return readBooks === 0 && series.books.length > 0;
       });
   
