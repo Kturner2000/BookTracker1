@@ -6,8 +6,6 @@
   install-all = "npm install && cd frontend && npm install && cd ../backend && npm install"
   start = "node backend/server.js"
 
-
 [functions]
-  backend = {
+  [functions.backend]
     handler = "backend/server.js"
-  }
