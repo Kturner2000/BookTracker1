@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "frontend/build"
+
+[scripts]
+  install-all = "npm install && cd frontend && npm install && cd ../backend && npm install"
+  start = "node backend/server.js"
+
+[functions]
+  backend = "backend"
