@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const Book = require('./models/book.model.js');
-const Author = require('./models/author.model.js'); // Assuming you have an Author model
-const connectDB = require("./lib/db.js");
+const Book = require('../models/book.model.js');
+const Author = require('../models/author.model.js'); // Assuming you have an Author model
+const connectDB = require("../lib/db.js");
 
 async function addBooksToAuthors() {
   try {
