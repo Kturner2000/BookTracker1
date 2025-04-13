@@ -35,7 +35,7 @@ export const useBookStore = create((set, get) => ({
           console.error("Error in getAllBooks:", error.message);
           set({ error: error.message });
         } finally {
-          set({ isBookLoading: false }); // Do not overwrite error here
+          set({ isBookLoading: false }); 
         }
       },
 

@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 async function getAllBooks(req, res) {
   try {
       const books = await Book.find();
-      console.log(books)
+     
       if (books.length === 0) {
           return res.status(404).json({ message: 'No books found' });
       }
