@@ -19,7 +19,7 @@ export default function HeroBook() {
   }, [getAllBooks, getAllSeries]);
 
   const selectRandomBook = () => {
-    if (books && allSeries && !hasSelectedRandomBook.current) {
+    if (books.length > 0 && books && allSeries && !hasSelectedRandomBook.current) {
       // Filter series with 0 books read
       const unreadSeries = allSeries.map(series => {
         const books = series.books || []
