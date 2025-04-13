@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "frontend/build"
+  publish = "frontend/dist"
 
 [scripts]
   install-all = "npm install && cd frontend && npm install && cd ../backend && npm install"
