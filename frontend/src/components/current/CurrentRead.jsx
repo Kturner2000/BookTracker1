@@ -15,7 +15,6 @@ export default function CurrentlyReading() {
     getAllSeries();
   }, [getAllBooks, getAllSeries]);
 
-  console.log('Books:', books);
   useEffect(() => {
     if (books && allSeries) {
       const currentlyReadingBooks = books
